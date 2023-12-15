@@ -24,12 +24,12 @@ export function routeIsActive (pathname: String, route: IRoute): boolean {
 }
 
 const routes: IRoute[] = [
-  {
-    path: '/home', // the url
-    icon: 'HomeIcon', // the component being exported from icons/index.js
-    name: 'Home', // name that appear in Sidebar
-    exact: true,
-  },
+  // {
+  //   path: '/home', // the url
+  //   icon: 'HomeIcon', // the component being exported from icons/index.js
+  //   name: 'Home', // name that appear in Sidebar
+  //   exact: true,
+  // },
   {
     icon: 'FormsIcon',
     name: 'Geral',
@@ -87,59 +87,59 @@ const routes: IRoute[] = [
       },
     ]
   },
-  {
-    path: '/home/forms',
-    icon: 'FormsIcon',
-    name: 'Forms',
-  },
-  {
-    path: '/home/cards',
-    icon: 'CardsIcon',
-    name: 'Cards',
-  },
-  {
-    path: '/home/charts',
-    icon: 'ChartsIcon',
-    name: 'Charts',
-  },
-  {
-    path: '/home/buttons',
-    icon: 'ButtonsIcon',
-    name: 'Buttons',
-  },
-  {
-    path: '/home/modals',
-    icon: 'ModalsIcon',
-    name: 'Modals',
-  },
-  {
-    path: '/home/tables',
-    icon: 'TablesIcon',
-    name: 'Tables',
-  },
-  {
-    icon: 'PagesIcon',
-    name: 'Pages',
-    routes: [
-      // submenu
-      {
-        path: '/home/create-account',
-        name: 'Create account',
-      },
-      {
-        path: '/home/forgot-password',
-        name: 'Forgot password',
-      },
-      {
-        path: '/home/404',
-        name: '404',
-      },
-      {
-        path: '/home/blank',
-        name: 'Blank',
-      },
-    ],
-  },
+  // {
+  //   path: '/home/forms',
+  //   icon: 'FormsIcon',
+  //   name: 'Forms',
+  // },
+  // {
+  //   path: '/home/cards',
+  //   icon: 'CardsIcon',
+  //   name: 'Cards',
+  // },
+  // {
+  //   path: '/home/charts',
+  //   icon: 'ChartsIcon',
+  //   name: 'Charts',
+  // },
+  // {
+  //   path: '/home/buttons',
+  //   icon: 'ButtonsIcon',
+  //   name: 'Buttons',
+  // },
+  // {
+  //   path: '/home/modals',
+  //   icon: 'ModalsIcon',
+  //   name: 'Modals',
+  // },
+  // {
+  //   path: '/home/tables',
+  //   icon: 'TablesIcon',
+  //   name: 'Tables',
+  // },
+  // {
+  //   icon: 'PagesIcon',
+  //   name: 'Pages',
+  //   routes: [
+  //     // submenu
+  //     {
+  //       path: '/home/create-account',
+  //       name: 'Create account',
+  //     },
+  //     {
+  //       path: '/home/forgot-password',
+  //       name: 'Forgot password',
+  //     },
+  //     {
+  //       path: '/home/404',
+  //       name: '404',
+  //     },
+  //     {
+  //       path: '/home/blank',
+  //       name: 'Blank',
+  //     },
+  //   ],
+  // },
 ]
 
 export type {IRoute}
