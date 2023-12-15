@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SIAP Codigo="11" Exercicio="2" Mes="2">
+    <Licitacao>
+        <NumeroLicitacao>03/2023</NumeroLicitacao>
+        <CNPJ>00100010020012</CNPJ>
+        <NumeroProcesso>123124.124/512</NumeroProcesso>
+        <Modalidade>1</Modalidade>
+        <CriterioTipoJulgamento>1</CriterioTipoJulgamento>
+        <NaturezaObjeto>1</NaturezaObjeto>
+        <Agrupamento>1</Agrupamento>
+        <JustificativaGrupoLote></JustificativaGrupoLote>
+        <RegistroPreco>1</RegistroPreco>
+        <PossuiParticipantes>1</PossuiParticipantes>
+        <Objeto>Licitacao para testar o banco de dados</Objeto>
+        <RegimeExecucaoObra>1</RegimeExecucaoObra>
+        <NaturezaObra>1</NaturezaObra>
+        <ValorMaximo></ValorMaximo>
+        <ValorPrevisto>12512324.87</ValorPrevisto>
+        <CodigoPrograma></CodigoPrograma>
+        <OrcamentoProprio>2</OrcamentoProprio>
+        <VeiculoPublicacaoEdital>1</VeiculoPublicacaoEdital>
+        <DataPublicacaoEdital>2023-03-29</DataPublicacaoEdital>
+        <Garantia>2</Garantia>
+    </Licitacao>
+    <Licitacao>
+        <NumeroLicitacao>01/2023</NumeroLicitacao>
+        <CNPJ>00100010020012</CNPJ>
+        <NumeroProcesso>123124.124/512</NumeroProcesso>
+        <Modalidade>6</Modalidade>
+        <CriterioTipoJulgamento>1</CriterioTipoJulgamento>
+        <NaturezaObjeto>3</NaturezaObjeto>
+        <Agrupamento>1</Agrupamento>
+        <JustificativaGrupoLote></JustificativaGrupoLote>
+        <RegistroPreco>1</RegistroPreco>
+        <PossuiParticipantes>1</PossuiParticipantes>
+        <Objeto>Licitacao para testar o banco de dados</Objeto>
+        <RegimeExecucaoObra>1</RegimeExecucaoObra>
+        <NaturezaObra>1</NaturezaObra>
+        <ValorMaximo>0</ValorMaximo>
+        <ValorPrevisto>12512324.87</ValorPrevisto>
+        <CodigoPrograma></CodigoPrograma>
+        <OrcamentoProprio>2</OrcamentoProprio>
+        <VeiculoPublicacaoEdital>1</VeiculoPublicacaoEdital>
+        <DataPublicacaoEdital>2023-03-29</DataPublicacaoEdital>
+        <Garantia>2</Garantia>
+    </Licitacao>
+    <Licitacao>
+        <NumeroLicitacao>02/2023</NumeroLicitacao>
+        <CNPJ>14641614361613</CNPJ>
+        <NumeroProcesso>125161461436</NumeroProcesso>
+        <Modalidade>6</Modalidade>
+        <CriterioTipoJulgamento>2</CriterioTipoJulgamento>
+        <NaturezaObjeto>3</NaturezaObjeto>
+        <Agrupamento>1</Agrupamento>
+        <JustificativaGrupoLote></JustificativaGrupoLote>
+        <RegistroPreco>1</RegistroPreco>
+        <PossuiParticipantes>1</PossuiParticipantes>
+        <Objeto>Licitação para testar a adição e atualização pela interface</Objeto>
+        <RegimeExecucaoObra></RegimeExecucaoObra>
+        <NaturezaObra></NaturezaObra>
+        <ValorMaximo>0</ValorMaximo>
+        <ValorPrevisto>4</ValorPrevisto>
+        <CodigoPrograma>12431251235</CodigoPrograma>
+        <OrcamentoProprio>1</OrcamentoProprio>
+        <VeiculoPublicacaoEdital>1</VeiculoPublicacaoEdital>
+        <DataPublicacaoEdital>2003-12-12</DataPublicacaoEdital>
+        <Garantia>2</Garantia>
+    </Licitacao>
+</SIAP>

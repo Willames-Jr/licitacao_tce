@@ -1,0 +1,49 @@
+{
+  "name": "windmill-dashboard-nextjs-typescript",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@material-ui/core": "^4.12.4",
+    "@material-ui/icons": "^4.11.3",
+    "@mui/icons-material": "^5.14.3",
+    "@mui/lab": "^5.0.0-alpha.139",
+    "@mui/material": "^5.14.4",
+    "@mui/styles": "^5.14.4",
+    "@prisma/client": "5.1.1",
+    "archiver": "^6.0.1",
+    "chart.js": "^3.6.1",
+    "classnames": "^2.3.1",
+    "jszip": "^3.10.1",
+    "material-table": "1.36.0",
+    "next": "11.1.2",
+    "nprogress": "^0.2.0",
+    "prisma": "^5.1.1",
+    "react": "17.0.2",
+    "react-chartjs-2": "^4.0.0",
+    "react-dom": "17.0.2",
+    "react-select": "^5.7.4",
+    "xml-js": "^1.6.11",
+    "xml2js": "^0.6.2"
+  },
+  "devDependencies": {
+    "@roketid/windmill-react-ui": "^0.1.1",
+    "@svgr/webpack": "^6.1.0",
+    "@types/nprogress": "^0.2.0",
+    "@types/react": "17.0.21",
+    "autoprefixer": "^10.4.2",
+    "cssnano": "^5.0.12",
+    "eslint": "7.32.0",
+    "eslint-config-next": "11.1.2",
+    "postcss": "^8.4.6",
+    "tailwindcss": "^3.0.22",
+    "typescript": "4.4.3"
+  }
+}

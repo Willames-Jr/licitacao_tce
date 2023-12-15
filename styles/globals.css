@@ -1,0 +1,27 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#react-select-7-listbox {
+  z-index: 999 !important;
+  position: fixed !important;
+}
+
+#nprogress .bar {
+    background: rgb(108 43 217) !important;
+    height: 3px !important;
+}
+
+
+* {
+  box-sizing: border-box;
+}

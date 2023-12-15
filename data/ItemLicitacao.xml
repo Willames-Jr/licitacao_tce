@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SIAP Codigo="11" Exercicio="2" Mes="2">
+    <ItemLicitacao>
+        <NumeroLicitacao>03/2023</NumeroLicitacao>
+        <NumeroContratacao></NumeroContratacao>
+        <NumeroItem>1</NumeroItem>
+        <Descricao>Item para testar a interface</Descricao>
+        <UnidadeMedida>UNID</UnidadeMedida>
+        <Quantidade>100</Quantidade>
+        <ValorUnitarioEstimado>15</ValorUnitarioEstimado>
+    </ItemLicitacao>
+</SIAP>

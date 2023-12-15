@@ -1,0 +1,345 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+}
+
+// Done
+model Licitacao {
+  numero_licitacao         String                  @id
+  cnpj                     String
+  numero_processo          String
+  modalidade               Modalidade              @relation(fields: [modalidadeId], references: [codigo])
+  criterio_tipo_julgamento CriterioTipoJulgamento  @relation(fields: [criterio_tipo_julgamentoId], references: [codigo])
+  natureza_objeto          LicitacaoNaturezaObjeto @relation(fields: [natureza_objetoId], references: [codigo])
+  agrupamento              Agrupamento             @relation(fields: [agrupamentoId], references: [codigo])
+  justificativa_grupo_lote String?
+  registro_preco           Boolean
+  possui_participantes     Boolean
+  objeto                   String
+  regime_execucao_obra     RegimeExecucaoObra?     @relation(fields: [regime_execucao_obraId], references: [codigo])
+  natureza_obra            NaturezaObra?           @relation(fields: [natureza_obraId], references: [codigo])
+  valor_previsto           Decimal
+  valor_maximo             Decimal?
+  codigo_programa          String?
+  orcamento_proprio        Boolean
+  veiculo_publicacao       VeiculoPublicacao       @relation(fields: [veiculo_publicacaoId], references: [codigo])
+  data_publicacao_edital   DateTime
+  garantia                 Boolean
+
+  agrupamentoId              Int
+  veiculo_publicacaoId       Int
+  modalidadeId               Int
+  natureza_obraId            Int?
+  natureza_objetoId          Int
+  criterio_tipo_julgamentoId Int
+  regime_execucao_obraId     Int?
+
+  ItemLicitacao         ItemLicitacao[]
+  GrupoLicitacao        GrupoLicitacao[]
+  GrupoLicitacaoItem    GrupoLicitacaoItem[]
+  OrgaoParticipante     OrgaoParticipante[]
+  OrgaoParticipanteItem OrgaoParticipanteItem[]
+  Proposta              Proposta[]
+  AtaRegistroDePreco    AtaRegistroDePreco[]
+  AdjudicacaoLicitacao  AdjudicacaoLicitacao[]
+
+  @@map(name: "licitacao")
+}
+
+model Modalidade {
+  codigo    Int         @id @default(autoincrement())
+  descricao String?
+  Licitacao Licitacao[]
+
+  @@map(name: "modalidade")
+}
+
+model CriterioTipoJulgamento {
+  codigo    Int         @id @default(autoincrement())
+  descricao String?
+  Licitacao Licitacao[]
+
+  @@map(name: "criterio_tipo_julgamento")
+}
+
+model LicitacaoNaturezaObjeto {
+  codigo    Int         @id @default(autoincrement())
+  descricao String?
+  Licitacao Licitacao[]
+
+  @@map(name: "licitacao_natureza_objeto")
+}
+
+model RegimeExecucaoObra {
+  codigo    Int         @id @default(autoincrement())
+  descricao String?
+  Licitacao Licitacao[]
+
+  @@map(name: "regime_execucao_obra")
+}
+
+model NaturezaObra {
+  codigo    Int         @id @default(autoincrement())
+  descricao String?
+  Licitacao Licitacao[]
+
+  @@map(name: "natureza_obra")
+}
+
+model Agrupamento {
+  codigo    Int         @id @default(autoincrement())
+  descricao String?
+  Licitacao Licitacao[]
+
+  @@map(name: "agrupamento")
+}
+
+model VeiculoPublicacao {
+  codigo               Int                    @id @default(autoincrement())
+  descricao            String?
+  Licitacao            Licitacao[]
+  ContratacaoDireta    ContratacaoDireta[]
+  AdjudicacaoLicitacao AdjudicacaoLicitacao[]
+  AtaRegistroDePreco   AtaRegistroDePreco[]
+
+  @@map(name: "veiculo_publicacao")
+}
+
+model Enquadramento {
+  codigo            Int                 @id @default(autoincrement())
+  descricao         String
+  ContratacaoDireta ContratacaoDireta[]
+
+  @@map(name: "enquadramento")
+}
+
+//Done
+// data_publicacao => Data da Adjudicação
+// data_publicacao_edital => Data do Edital
+model ContratacaoDireta {
+  numero_contratacao     String            @id
+  cnpj                   String
+  numero_processo        String
+  enquadramento          Enquadramento     @relation(fields: [enquadramentoId], references: [codigo])
+  referencia_legal       ReferenciaLegal   @relation(fields: [natureza_objetoId], references: [codigo])
+  natureza_objeto        CpNaturezaObjeto  @relation(fields: [referencia_legalId], references: [codigo])
+  objeto                 String
+  valor_previsto         Decimal
+  codigo_programa        String?
+  orcamento_proprio      Boolean
+  veiculo_publicacao     VeiculoPublicacao @relation(fields: [veiculo_publicacaoId], references: [codigo])
+  data_publicacao        DateTime?
+  data_publicacao_edital DateTime?
+  documento_juridico     String
+
+  natureza_objetoId    Int
+  referencia_legalId   Int
+  enquadramentoId      Int
+  veiculo_publicacaoId Int
+  ItemLicitacao        ItemLicitacao[]
+  Proposta             Proposta[]
+
+  @@map(name: "contratacao_direta")
+}
+
+model CpNaturezaObjeto {
+  codigo            Int                 @id @default(autoincrement())
+  descricao         String
+  ContratacaoDireta ContratacaoDireta[]
+
+  @@map(name: "cp_natureza_objeto")
+}
+
+model ReferenciaLegal {
+  codigo            Int                 @id
+  descricao         String
+  ContratacaoDireta ContratacaoDireta[]
+
+  @@map(name: "referencia_legal")
+}
+
+//Done
+model ItemLicitacao {
+  numero_contratacao      ContratacaoDireta? @relation(fields: [numero_contratacaoId], references: [numero_contratacao])
+  numero_licitacao        Licitacao?         @relation(fields: [numero_licitacaoId], references: [numero_licitacao])
+  numero_item             Int                @id @default(autoincrement())
+  descricao               String
+  unidade_medida          String
+  quantidade              Decimal
+  valor_unitario_estimado Decimal?
+
+  numero_licitacaoId    String?
+  numero_contratacaoId  String?
+  OrgaoParticipanteItem OrgaoParticipanteItem[]
+  Proposta              Proposta[]
+
+  @@map(name: "item_licitacao")
+}
+
+//Done
+model GrupoLicitacao {
+  id Int @id @default(autoincrement())
+
+  numero_licitacao Licitacao @relation(fields: [numero_licitacaoId], references: [numero_licitacao])
+  numero_lote      Int
+  descricao        String
+
+  numero_licitacaoId String
+  Proposta           Proposta[]
+
+  @@map(name: "grupo_licitacao")
+}
+
+// Done
+// Qual é a referência ao GrupoLicitacao ??
+model GrupoLicitacaoItem {
+  numero_licitacao        Licitacao @relation(fields: [numero_licitacaoId], references: [numero_licitacao])
+  numero_item             Int       @id @default(autoincrement())
+  descricao               String
+  unidade_medida          String
+  quantidade_estimada     Decimal
+  valor_unitario_estimado Decimal
+
+  numero_licitacaoId    String
+  OrgaoParticipanteItem OrgaoParticipanteItem[]
+  Proposta              Proposta[]
+
+  @@map(name: "grupo_licitacao_item")
+}
+
+//Done
+model OrgaoParticipante {
+  id               Int       @id @default(autoincrement())
+  cnpj             String
+  numero_licitacao Licitacao @relation(fields: [numero_licitacaoId], references: [numero_licitacao])
+
+  numero_licitacaoId    String
+  OrgaoParticipanteItem OrgaoParticipanteItem[]
+
+  @@map(name: "orgao_participante")
+}
+
+// Done
+model OrgaoParticipanteItem {
+  id                 Int                 @id @default(autoincrement())
+  orgao_participante OrgaoParticipante   @relation(fields: [orgao_participanteId], references: [id])
+  numero_licitacao   Licitacao           @relation(fields: [numero_licitacaoId], references: [numero_licitacao])
+  numero_lote        GrupoLicitacaoItem? @relation(fields: [numero_loteId], references: [numero_item])
+  numero_item        ItemLicitacao?      @relation(fields: [numero_itemId], references: [numero_item])
+  quantidade         Decimal
+
+  orgao_participanteId Int
+  numero_licitacaoId   String
+  numero_loteId        Int?
+  numero_itemId        Int?
+
+  @@map(name: "orgao_participante_item")
+}
+
+// Done
+model AdjudicacaoLicitacao {
+  id                        Int       @id @default(autoincrement())
+  numero_licitacao          Licitacao @relation(fields: [numero_licitacaoId], references: [numero_licitacao])
+  data_adjudicacao          DateTime
+  data_homologacao          DateTime
+  data_publicacao_resultado DateTime
+  homologacao_parcial       Boolean
+  data_anulacao             DateTime?
+  motivo_anulacao           String?
+  data_publicacao_anulacao  DateTime?
+  data_revogacao            DateTime?
+  motivo_revogacao          String?
+  data_publicacao_revogacao DateTime?
+  data_vigencia             DateTime?
+  fracassada                Boolean
+
+  // Somente um veiculo, se precisar adicionar mais de um modificar aqui
+
+  veiculo_publicacao VeiculoPublicacao @relation(fields: [veiculo_publicacaoId], references: [codigo])
+
+  numero_licitacaoId   String
+  veiculo_publicacaoId Int
+
+  @@map(name: "adjudicacao_licitacao")
+}
+
+model Proponente {
+  codigo             String               @id
+  tipo               String
+  nome               String
+  Proposta           Proposta[]
+  AtaRegistroDePreco AtaRegistroDePreco[]
+
+  @@map(name: "proponente")
+}
+
+// PROBLEMA!! 
+// ItemAdjudicado != ProponenteLicitacaoItem
+// Ambos fazem referencia a um item, mas ItemAdjudicado diz se o item foi 
+// Adjudicado,Anulado,Revogado ou fracassado.
+// Enquanto ProponenteLicitacaoItem faz referencia a proposta da empresa
+// O meu model Proposta junta os dois, mas casos de itens fracassados não vão ser contemplados.
+
+// ProponenteLicitacaoItem, ItemAdjudicado, GrupoAdjudicado
+// Done
+model Proposta {
+  id                 Int                @id @default(autoincrement())
+  numero_contratacao ContratacaoDireta? @relation(fields: [numero_contratacaoId], references: [numero_contratacao])
+  numero_licitacao   Licitacao?         @relation(fields: [numero_licitacaoId], references: [numero_licitacao])
+
+  numero_lote GrupoLicitacao? @relation(fields: [numero_loteId], references: [id])
+  numero_item ItemLicitacao?  @relation(fields: [numero_itemId], references: [numero_item])
+
+  marca_item          String?
+  codigo_barras       String?
+  data_homologacao    DateTime?
+  quantidade          Decimal?
+  valor               Decimal
+  vencedor Boolean
+  adjudicado          Adjudicado? @relation(fields: [adjudicadoId], references: [codigo])
+  codigo_participante Proponente @relation(fields: [codigo_participanteId], references: [codigo])
+
+  numero_contratacaoId          String?
+  numero_licitacaoId            String?
+  numero_loteId                 Int?
+  numero_itemId                 Int?
+  adjudicadoId                  Int?
+  codigo_participanteId         String
+  GrupoLicitacaoItem            GrupoLicitacaoItem? @relation(fields: [grupoLicitacaoItemNumero_item], references: [numero_item])
+  grupoLicitacaoItemNumero_item Int?
+
+  @@map(name: "proposta")
+}
+
+model Adjudicado {
+  codigo    Int        @id @default(autoincrement())
+  descricao String
+  Proposta  Proposta[]
+
+  @@map(name: "publicadjudicado")
+}
+
+model AtaRegistroDePreco {
+  numero_ata          String             @id
+  numero_licitacao    Licitacao          @relation(fields: [numero_licitacaoId], references: [numero_licitacao])
+  valor               Decimal
+  descricao           String
+  // pegar nome e codigo aqui
+  codigo_beneficiario Proponente         @relation(fields: [codigo_beneficiarioId], references: [codigo])
+  inicio_vigencia     DateTime
+  fim_vigencia        DateTime
+  data_publicacao     DateTime?
+  veiculo_publicacao  VeiculoPublicacao? @relation(fields: [veiculo_publicacaoId], references: [codigo])
+  link_publicacao     String?
+
+  numero_licitacaoId    String
+  codigo_beneficiarioId String
+  veiculo_publicacaoId  Int?
+
+  @@map(name: "ata_registro_de_preco")
+}

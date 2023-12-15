@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SIAP Codigo="11" Exercicio="2" Mes="2">
+    <ContratacaoDireta>
+        <NumeroContratacao>02/2023</NumeroContratacao>
+        <CNPJ>12412512512451</CNPJ>
+        <NumeroProcesso>12515151451242142131242156412362</NumeroProcesso>
+        <Enquadramento>1</Enquadramento>
+        <ReferenciaLegal>1</ReferenciaLegal>
+        <NaturezaObjeto>2</NaturezaObjeto>
+        <Objeto>Objeto de teste</Objeto>
+        <ValorPrevisto>4</ValorPrevisto>
+        <CodigoPrograma>1231231512346573</CodigoPrograma>
+        <OrcamentoProprio>1</OrcamentoProprio>
+        <VeiculoPublicacao>1</VeiculoPublicacao>
+        <DataPublicacao>2002-12-12</DataPublicacao>
+        <DataPublicacaoEdital>2002-12-12</DataPublicacaoEdital>
+        <DocumentoJuridico>Tudo ok 👍
+</DocumentoJuridico>
+    </ContratacaoDireta>
+</SIAP>
