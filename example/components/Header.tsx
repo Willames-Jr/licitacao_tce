@@ -82,7 +82,9 @@ function Header() {
   })
 
   const validFields = (): boolean => {
-    let errors = {
+    let errors: {
+      mes: any, codigo: any, exercicio:any
+    } = {
       mes:[],
       codigo: [],
       exercicio: []

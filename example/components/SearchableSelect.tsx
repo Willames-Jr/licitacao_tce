@@ -4,8 +4,8 @@ import Select from 'react-select';
 
 type Props = {
   label: string,
-  items: [{}],
-  validation: [(string | undefined)?],
+  items: any,
+  validation: any,
   setValue: (value: string) => void,
   valueProp: string,
   value: string,
@@ -14,15 +14,15 @@ type Props = {
 
 const SelectField: React.FC<Props> = (props) => {
   const [elements, setElements] = useState([{}]);
-  const [value, setValue] = useState(null);
+  const [value, setValue] : [value:any, setValue:any] = useState(null);
   useEffect(() => {
     if (props.value === value) return;
-    setValue(elements.find(e => e.value === props.value))
+    setValue(elements.find((e: any) => e.value === props.value))
   },[props.value])
 
   useEffect(() => {
     
-    setElements(props.items.map((i) => {
+    setElements(props.items.map((i: any) => {
       return {label: i[props.textProp], value: i[props.valueProp]}
     }))
     
@@ -40,7 +40,7 @@ const SelectField: React.FC<Props> = (props) => {
       {
         props.validation &&
         <HelperText valid={false}>{
-          props.validation.map((v) => {return <p key={v}>*{v}</p>})
+          props.validation.map((v: any) => {return <p key={v}>*{v}</p>})
         }</HelperText>
       }
     </Label>
