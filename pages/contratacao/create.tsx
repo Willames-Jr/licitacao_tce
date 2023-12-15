@@ -373,7 +373,7 @@ const Create: React.FC<Props> = ({initialData, enquadramento, cpNaturezaObjeto, 
             <Textarea rows={3} value = {objeto} maxLength={1024} onChange={(e) => setObjeto(e.target.value)} className="mt-1" valid={validation.objeto.length === 0}  />
             {
               validation.objeto &&
-              <HelperText valid={false}>{validation.objeto.map((v) => {return <p>*{v}</p>})}</HelperText>
+              <HelperText valid={false}>{validation.objeto.map((v) => {return <p key={v}>*{v}</p>})}</HelperText>
             }
           
           </Label>
@@ -383,7 +383,7 @@ const Create: React.FC<Props> = ({initialData, enquadramento, cpNaturezaObjeto, 
             <Textarea rows={3} value = {documento_juridico} maxLength={1024} onChange={(e) => setDocumentoJuridico(e.target.value)} className="mt-1" valid={validation.objeto.length === 0}  />
             {
               validation.documento_juridico &&
-              <HelperText valid={false}>{validation.documento_juridico.map((v) => {return <p>*{v}</p>})}</HelperText>
+              <HelperText valid={false}>{validation.documento_juridico.map((v) => {return <p key={v}>*{v}</p>})}</HelperText>
             }
           
           </Label>

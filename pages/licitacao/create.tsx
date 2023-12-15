@@ -358,7 +358,7 @@ const Create: React.FC<Props> = ({initialData, modalidades,criterioJulgamento, l
             <Input value = {numero_licitacao} maxLength={16} onChange={(e) => setNumeroLicitacao(e.target.value)} className="mt-1" valid={validation.numero_licitacao.length === 0}  />
             {
               validation.numero_licitacao &&
-              <HelperText valid={false}>{validation.numero_licitacao.map((v) => {return <p>*{v}</p>})}</HelperText>
+              <HelperText valid={false}>{validation.numero_licitacao.map((v) => {return <p key={v}>*{v}</p>})}</HelperText>
             }
           
           </Label>
@@ -367,7 +367,7 @@ const Create: React.FC<Props> = ({initialData, modalidades,criterioJulgamento, l
             <Input value = {numero_processo} maxLength={32} onChange={(e) => setNumeroProcesso(e.target.value)} className="mt-1" valid={validation.numero_processo.length === 0}  />
             {
               validation.numero_processo &&
-              <HelperText valid={false}>{validation.numero_processo.map((v) => {return <p>*{v}</p>})}</HelperText>
+              <HelperText valid={false}>{validation.numero_processo.map((v) => {return <p key={v}>*{v}</p>})}</HelperText>
             }
           
           </Label>
@@ -377,7 +377,7 @@ const Create: React.FC<Props> = ({initialData, modalidades,criterioJulgamento, l
             <Input value = {cnpj} onChange={(e) => setCnpj(cnpjMask(e.target.value))} className="mt-1" valid={validation.cnpj.length === 0}  />
             {
               validation.cnpj &&
-              <HelperText valid={false}>{validation.cnpj.map((v) => {return <p>*{v}</p>})}</HelperText>
+              <HelperText valid={false}>{validation.cnpj.map((v) => {return <p key={v}>*{v}</p>})}</HelperText>
             }
           
           </Label>
@@ -427,7 +427,7 @@ const Create: React.FC<Props> = ({initialData, modalidades,criterioJulgamento, l
             <Input value = {justificativa_grupo_lote} maxLength={255} onChange={(e) => setJustificativaGrupoLote(e.target.value)} className="mt-1" valid={validation.justificativa_grupo_lote.length === 0}  />
             {
               validation.justificativa_grupo_lote &&
-              <HelperText valid={false}>{validation.justificativa_grupo_lote.map((v) => {return <p>*{v}</p>})}</HelperText>
+              <HelperText valid={false}>{validation.justificativa_grupo_lote.map((v) => {return <p key={v}>*{v}</p>})}</HelperText>
             }
           </Label>
 
@@ -437,7 +437,7 @@ const Create: React.FC<Props> = ({initialData, modalidades,criterioJulgamento, l
             {
               validation.registro_preco &&
               <div>
-                <HelperText valid={false}>{validation.registro_preco.map((v) => {return <p>*{v}</p>})}</HelperText>
+                <HelperText valid={false}>{validation.registro_preco.map((v) => {return <p key={v}>*{v}</p>})}</HelperText>
               </div>
             }
           </Label>
@@ -472,7 +472,7 @@ const Create: React.FC<Props> = ({initialData, modalidades,criterioJulgamento, l
             <Input type="number" placeholder="0.00" value = {valor_previsto} onChange={(e) => setValorPrevisto(parseFloat(e.target.value).toFixed(2))} className="mt-1" valid={validation.valor_previsto.length === 0}  />
             {
               validation.valor_previsto &&
-              <HelperText valid={false}>{validation.valor_previsto.map((v) => {return <p>*{v}</p>})}</HelperText>
+              <HelperText valid={false}>{validation.valor_previsto.map((v) => {return <p key={v}>*{v}</p>})}</HelperText>
             }
           
           </Label>
@@ -482,7 +482,7 @@ const Create: React.FC<Props> = ({initialData, modalidades,criterioJulgamento, l
             <Input type="number" placeholder="0.00" value = {valor_maximo} onChange={(e) => setValorMaximo(parseFloat(e.target.value).toFixed(2))} className="mt-1" valid={validation.valor_maximo.length === 0}  />
             {
               validation.valor_maximo &&
-              <HelperText valid={false}>{validation.valor_maximo.map((v) => {return <p>*{v}</p>})}</HelperText>
+              <HelperText valid={false}>{validation.valor_maximo.map((v) => {return <p key={v}>*{v}</p>})}</HelperText>
             }
           </Label>
 
@@ -513,7 +513,7 @@ const Create: React.FC<Props> = ({initialData, modalidades,criterioJulgamento, l
             <Input type = "date" value = {data_publicacao_edital.substring(0, 10)} onChange={(e) => setDataPublicacaoEdital(e.target.value)} className="mt-1" valid={validation.data_publicacao_edital.length === 0}  />
             {
               validation.data_publicacao_edital &&
-              <HelperText valid={false}>{validation.data_publicacao_edital.map((v) => {return <p>*{v}</p>})}</HelperText>
+              <HelperText valid={false}>{validation.data_publicacao_edital.map((v) => {return <p key={v}>*{v}</p>})}</HelperText>
             }
           
           </Label>
@@ -523,7 +523,7 @@ const Create: React.FC<Props> = ({initialData, modalidades,criterioJulgamento, l
             <Input value = {codigo_programa} maxLength={16} onChange={(e) => setCodigoPrograma(e.target.value)} className="mt-1" valid={validation.codigo_programa.length === 0}  />
             {
               validation.codigo_programa &&
-              <HelperText valid={false}>{validation.codigo_programa.map((v) => {return <p>*{v}</p>})}</HelperText>
+              <HelperText valid={false}>{validation.codigo_programa.map((v) => {return <p key={v}>*{v}</p>})}</HelperText>
             }
           
           </Label>
@@ -534,7 +534,7 @@ const Create: React.FC<Props> = ({initialData, modalidades,criterioJulgamento, l
             <Textarea rows={3} value = {objeto} maxLength={1024} onChange={(e) => setObjeto(e.target.value)} className="mt-1" valid={validation.objeto.length === 0}  />
             {
               validation.objeto &&
-              <HelperText valid={false}>{validation.objeto.map((v) => {return <p>*{v}</p>})}</HelperText>
+              <HelperText valid={false}>{validation.objeto.map((v) => {return <p key={v}>*{v}</p>})}</HelperText>
             }
           
           </Label>

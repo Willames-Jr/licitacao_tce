@@ -407,7 +407,7 @@ const Create: React.FC<Props> = ({initialData, veiculos, licitacoes}) => {
           <Textarea rows={3} value = {motivo_anulacao} maxLength={1024} onChange={(e) => setMotivoAnulacao(e.target.value)} className="mt-1" valid={validation.motivo_anulacao.length === 0}  />
           {
             validation.motivo_anulacao &&
-            <HelperText valid={false}>{validation.motivo_anulacao.map((v) => {return <p>*{v}</p>})}</HelperText>
+            <HelperText valid={false}>{validation.motivo_anulacao.map((v) => {return <p key={v}>*{v}</p>})}</HelperText>
           }
         </Label>
 
@@ -416,7 +416,7 @@ const Create: React.FC<Props> = ({initialData, veiculos, licitacoes}) => {
           <Textarea rows={3} value = {motivo_revogacao} maxLength={1024} onChange={(e) => setMotivoRevogacao(e.target.value)} className="mt-1" valid={validation.motivo_revogacao.length === 0}  />
           {
             validation.motivo_revogacao &&
-            <HelperText valid={false}>{validation.motivo_revogacao.map((v) => {return <p>*{v}</p>})}</HelperText>
+            <HelperText valid={false}>{validation.motivo_revogacao.map((v) => {return <p key={v}>*{v}</p>})}</HelperText>
           }
         </Label>
 

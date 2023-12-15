@@ -354,7 +354,7 @@ const Create: React.FC<Props> = ({initialData, licitacoes, veiculos, proponentes
           <Textarea rows={3} value = {descricao} maxLength={1024} onChange={(e) => setDescricao(e.target.value)} className="mt-1" valid={validation.descricao.length === 0}  />
           {
             validation.descricao &&
-            <HelperText valid={false}>{validation.descricao.map((v) => {return <p>*{v}</p>})}</HelperText>
+            <HelperText valid={false}>{validation.descricao.map((v) => {return <p key={v}>*{v}</p>})}</HelperText>
           }
         
         </Label>
@@ -363,7 +363,7 @@ const Create: React.FC<Props> = ({initialData, licitacoes, veiculos, proponentes
           <Textarea rows={3} value = {link_publicacao} maxLength={1024} onChange={(e) => setLinkPublicacao(e.target.value)} className="mt-1" valid={validation.link_publicacao.length === 0}  />
           {
             validation.link_publicacao &&
-            <HelperText valid={false}>{validation.link_publicacao.map((v) => {return <p>*{v}</p>})}</HelperText>
+            <HelperText valid={false}>{validation.link_publicacao.map((v) => {return <p key={v}>*{v}</p>})}</HelperText>
           }
         </Label>
 
